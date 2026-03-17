@@ -1,0 +1,86 @@
+name: Deploy Infrastructure
+run-name: Deploy Website Infrastructure --${{ inputs.action }} - ${{ inputs.stack }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Deploy Website Infrastructure'
+        required: true
+        type: choice
+        options:
+          - 'deploy'
+          - 'diff'
+      stack:
+        description: 'Choose your stack?'
+        required: true
+        type: choice
+        options:
+          - 'WebsiteInfraStack'
+          - 'WWWWebsiteInfraStack'
+          - 'UsEast1Stack'
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install AWS CDK
+        run: npm install -g aws-cdk
+
+      - name: Set up Go
+        uses: actions/setup-go@v3
+        with:
+          go-version: 1.22
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ARN_ROLE_TO_ASSUME }}
+          role-session-name: ${{ secrets.AWS_ROLE_SESSION_NAME }}
+          aws-region: ${{ secrets.AWS_REGION }}          
+
+      - name: Run Unit Test
+        run: go test -v ./...
+
+      - name: Bootstrap CDK
+        run: |
+          if [[ ${{ github.event.inputs.stack }} == "WebsiteInfraStack" ]]; then
+            region="${{ secrets.AWS_REGION }}"
+          elif [[ ${{ github.event.inputs.stack }} == "WWWWebsiteInfraStack" ]]; then
+            region="${{ secrets.AWS_REGION }}"            
+          elif [[ ${{ github.event.inputs.stack }} == "UsEast1Stack" ]]; then
+            region="us-east-1"            
+          else
+          echo "Unknown stack: ${{ github.event.inputs.stack }}"
+            exit 1
+          fi
+
+          make bootstrap region=$region
+        env:
+          AWS_ACCOUNT: ${{ secrets.AWS_ACCOUNT }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          CERTIFICATE_ARN: ${{ secrets.CERTIFICATE_ARN }}
+
+      - name: Deploy CDK
+        run: |
+          if [[ ${{ github.event.inputs.stack }} == "WebsiteInfraStack" ]]; then
+            region="${{ secrets.AWS_REGION }}"
+          elif [[ ${{ github.event.inputs.stack }} == "WWWWebsiteInfraStack" ]]; then
+            region="${{ secrets.AWS_REGION }}"
+          elif [[ ${{ github.event.inputs.stack }} == "UsEast1Stack" ]]; then
+            region="us-east-1"            
+          else
+          echo "Unknown stack: ${{ github.event.inputs.stack }}"
+            exit 1
+          fi
+
+          make build action=${{ github.event.inputs.action }} stack=${{ github.event.inputs.stack }} region=$region
+        env:
+          AWS_ACCOUNT: ${{ secrets.AWS_ACCOUNT }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          CERTIFICATE_ARN: ${{ secrets.CERTIFICATE_ARN }}
