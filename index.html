@@ -6,9 +6,11 @@
           autoReplaceSvg: 'nest'
         };
       </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Content Security Policy: strengthen via server header in production -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; connect-src 'self' https://www.google.com https://www.gstatic.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://www.google.com https://www.gstatic.com 'unsafe-inline';">
     <title>Personal Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -34,7 +36,12 @@
             }
         }
     </script>
+    <!-- reCAPTCHA v3: replace SITE_KEY below and in form.js with your site key -->
+    <script src="https://www.google.com/recaptcha/api.js?render=REPLACE_WITH_RECAPTCHA_SITE_KEY" async defer></script>
+    <script src="/form.js" defer></script>
     <style>
+        /* Smooth scroll and account for sticky header */
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
             background-color: #FAFAFA;
@@ -66,6 +73,8 @@
         .nav-link:hover::after {
             width: 100%;
         }
+        /* Ensure anchored sections are visible below sticky header */
+        #contact { scroll-margin-top: 5rem; }
     </style>
 </head>
 <body class="w-full min-h-screen m-0 p-0 overflow-x-hidden">
@@ -118,22 +127,22 @@
                     Building <span class="text-yc-orange italic">systems</span> that scale and <span class="text-yc-orange italic">interfaces</span> that delight.
                 </h1>
                 <p class="text-lg md:text-xl text-yc-gray mb-8 max-w-2xl font-light leading-relaxed">
-                    I'm John Doe, a software engineer and product designer based in San Francisco. I specialize in turning complex problems into elegant, minimalist digital solutions.
+                    I'm Nagarjun Nagesh, a solutions architect and software engineer based in Madrid. I specialize in turning complex problems into elegant, minimalist digital solutions.
                 </p>
                 <div class="flex flex-wrap gap-4">
                     <a href="#contact" class="px-6 py-3 bg-yc-dark text-white font-medium rounded hover:bg-black transition-colors flex items-center gap-2">
                         Get in touch <i class="fa-solid fa-arrow-right text-sm"></i>
                     </a>
-                    <a href="https://github.com" target="_blank" class="px-6 py-3 border border-yc-border text-yc-dark font-medium rounded hover:border-yc-orange hover:text-yc-orange transition-colors flex items-center gap-2">
+                    <a href="https://github.com/NagarjunNagesh" target="_blank" class="px-6 py-3 border border-yc-border text-yc-dark font-medium rounded hover:border-yc-orange hover:text-yc-orange transition-colors flex items-center gap-2">
                         <i class="fa-brands fa-github text-lg"></i> GitHub
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="px-6 py-3 border border-yc-border text-yc-dark font-medium rounded hover:border-yc-orange hover:text-yc-orange transition-colors flex items-center gap-2">
+                    <a href="https://linkedin.com/in/nagarjun-nagesh" target="_blank" class="px-6 py-3 border border-yc-border text-yc-dark font-medium rounded hover:border-yc-orange hover:text-yc-orange transition-colors flex items-center gap-2">
                         <i class="fa-brands fa-linkedin text-lg"></i> LinkedIn
                     </a>
                 </div>
             </div>
             <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-xl order-1 md:order-2 flex-shrink-0">
-                <img class="w-full h-full object-cover" src="https://storage.googleapis.com/uxpilot-auth.appspot.com/701ec4ce54-ecd0f9a01788d4efe5ce.png" alt="professional headshot portrait of a software engineer, minimalist background, black and white aesthetic" />
+                <img class="w-full h-full object-cover" src="/img/profile.jpeg" alt="professional headshot portrait of a software engineer, minimalist background, black and white aesthetic" />
             </div>
         </section>
 
@@ -339,7 +348,7 @@
                             </div>
                             <div>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider font-mono">Call Me</p>
-                                <a href="tel:+1234567890" class="text-lg font-medium hover:text-yc-orange transition-colors">+1 (555) 123-4567</a>
+                                <a href="tel:+34686343567" class="text-lg font-medium hover:text-yc-orange transition-colors">+34 686343567</a>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -348,29 +357,33 @@
                             </div>
                             <div>
                                 <p class="text-xs text-gray-400 uppercase tracking-wider font-mono">Email</p>
-                                <a href="mailto:hello@example.com" class="text-lg font-medium hover:text-yc-orange transition-colors">hello@johndoe.com</a>
+                                <a href="mailto:hello@nagarjunnagesh.com" class="text-lg font-medium hover:text-yc-orange transition-colors">hello@nagarjunnagesh.com</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="w-full md:w-1/2 bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
-                    <form class="space-y-4">
+                    <form id="contact-form" class="space-y-4" novalidate aria-label="Contact form" data-action="contact">
+                        <!-- Honeypot field (bots fill this) -->
+                        <input type="text" name="hp_website" id="hp_website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;top:auto;overflow:hidden;" aria-hidden="true">
+
                         <div>
                             <label for="name" class="block text-xs font-mono text-gray-400 mb-1 uppercase tracking-wider">Name</label>
-                            <input type="text" id="name" class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm" placeholder="John Smith">
+                            <input type="text" name="name" id="name" required class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm" placeholder="John Smith" autocomplete="name">
                         </div>
                         <div>
                             <label for="email" class="block text-xs font-mono text-gray-400 mb-1 uppercase tracking-wider">Email</label>
-                            <input type="email" id="email" class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm" placeholder="john@example.com">
+                            <input type="email" name="email" id="email" required class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm" placeholder="john@example.com" autocomplete="email">
                         </div>
                         <div>
                             <label for="message" class="block text-xs font-mono text-gray-400 mb-1 uppercase tracking-wider">Message</label>
-                            <textarea id="message" rows="4" class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm resize-none" placeholder="How can I help you?"></textarea>
+                            <textarea name="message" id="message" rows="4" required class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm resize-none" placeholder="How can I help you?" minlength="10" maxlength="400"></textarea>
                         </div>
-                        <button type="button" class="w-full bg-yc-orange text-white font-medium py-3 rounded hover:bg-orange-600 transition-colors flex justify-center items-center gap-2">
+                        <button type="submit" id="contact-submit" class="w-full bg-yc-orange text-white font-medium py-3 rounded hover:bg-orange-600 transition-colors flex justify-center items-center gap-2">
                             Send Message <i class="fa-solid fa-paper-plane text-sm"></i>
                         </button>
+                        <div id="contact-feedback" role="status" class="sr-only"></div>
                     </form>
                 </div>
             </div>
@@ -383,22 +396,22 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex items-center gap-2">
-                    <span class="font-serif font-bold text-xl text-yc-orange tracking-tighter">JD.</span>
-                    <span class="text-sm text-yc-gray">© 2024 John Doe. All rights reserved.</span>
+                    <span class="font-serif font-bold text-xl text-yc-orange tracking-tighter">NN.</span>
+                    <span class="text-sm text-yc-gray">© 2026 Nagarjun Nagesh. All rights reserved.</span>
                 </div>
                 
                 <div class="flex gap-6">
-                    <a href="https://github.com" target="_blank" class="text-yc-gray hover:text-yc-orange transition-colors">
+                    <a href="https://github.com/NagarjunNagesh" target="_blank" class="text-yc-gray hover:text-yc-orange transition-colors">
                         <span class="sr-only">GitHub</span>
                         <i class="fa-brands fa-github text-xl"></i>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" class="text-yc-gray hover:text-yc-orange transition-colors">
+                    <a href="https://linkedin.com/in/nagarjun-nagesh" target="_blank" class="text-yc-gray hover:text-yc-orange transition-colors">
                         <span class="sr-only">LinkedIn</span>
                         <i class="fa-brands fa-linkedin text-xl"></i>
                     </a>
-                    <a href="https://twitter.com" target="_blank" class="text-yc-gray hover:text-yc-orange transition-colors">
-                        <span class="sr-only">Twitter</span>
-                        <i class="fa-brands fa-twitter text-xl"></i>
+                    <a href="https://medium.com/@nagarjun_nagesh" target="_blank" class="text-yc-gray hover:text-yc-orange transition-colors">
+                        <span class="sr-only">Medium</span>
+                        <i class="fa-brands fa-medium text-xl"></i>
                     </a>
                 </div>
             </div>
