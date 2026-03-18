@@ -38,17 +38,8 @@ jobs:
       - name: NAGARJUNNAGESH to Upload to S3
         working-directory: frontend
         run: |
-          aws s3 sync ./dist s3://${{ env.PROD_BUCKET_NAME }}/ \
-          --exclude 'js/credentials.js' \
-          --exclude '.git/*' \
-          --exclude '.github/*' \
-          --exclude '*.md' \
-          --exclude '.vscode/*' \
-          --exclude 'sonar-project.properties' \
-          --exclude '*config.js' \
-          --exclude '.eslintrc.cjs' \
-          --exclude '.gitignore' \
-          --exclude 'package.json' \
+          aws s3 sync . s3://${{ env.PROD_BUCKET_NAME }}/ \
+          --exclude 'SECURE_FORM_README.md'
 
       - name: Invalidate Cloudfront Distribution NAGARJUNNAGESH.es
         working-directory: frontend
