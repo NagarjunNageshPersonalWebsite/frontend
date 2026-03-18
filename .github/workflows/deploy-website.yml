@@ -41,12 +41,12 @@ jobs:
           aws s3 sync . s3://${{ env.PROD_BUCKET_NAME }}/ \
           --exclude 'SECURE_FORM_README.md'
 
-      - name: Invalidate Cloudfront Distribution NAGARJUNNAGESH.es
+      - name: Invalidate Cloudfront Distribution NAGARJUNNAGESH.com
         working-directory: frontend
         run: |
           aws cloudfront create-invalidation --distribution-id ${{env.PROD_CLOUDFRONT_DISTRIBUTION}} --paths "/*"
 
-      - name: Invalidate Cloudfront Distribution www.NAGARJUNNAGESH.es
+      - name: Invalidate Cloudfront Distribution www.NAGARJUNNAGESH.com
         working-directory: frontend
         run: |
           aws cloudfront create-invalidation --distribution-id ${{env.PROD_WWW_CLOUDFRONT_DISTRIBUTION}} --paths "/*"
