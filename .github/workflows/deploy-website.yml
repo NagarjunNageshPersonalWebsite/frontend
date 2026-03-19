@@ -41,18 +41,16 @@ jobs:
           node-version: '24'
 
       - name: Install dependencies (Make)
-        working-directory: frontend
-        run: make setup
+        run: make -C frontend setup
 
       - name: Build CSS (Make)
-        working-directory: frontend
-        run: make build
+        run: make -C frontend build
 
       - name: Upload built CSS
         uses: actions/upload-artifact@v4
         with:
           name: frontend-css
-          path: assets/css/tailwind.css
+          path: frontend/assets/css/tailwind.css
 
       - name: NAGARJUNNAGESH to Upload to S3
         working-directory: frontend
