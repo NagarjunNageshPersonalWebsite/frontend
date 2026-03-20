@@ -16,10 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" crossorigin="anonymous"
         referrerpolicy="no-referrer" async defer></script>
 
-    <!-- reCAPTCHA v3: replace SITE_KEY below and in form.js with your site key -->
-    <script src="https://www.google.com/recaptcha/api.js?render=6Lear44sAAAAADJ0ZLmwvQiJyY90TD84AmdRlM-S" async
-        defer></script>
-    <script src="assets/js/form.js" defer></script>
+    <!-- Contact form removed: profile links only (reCAPTCHA and form handling removed) -->
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -38,7 +35,7 @@
                     <a href="#hero" class="text-sm font-medium text-yc-dark nav-link">About</a>
                     <a href="#doing" class="text-sm font-medium text-yc-dark nav-link">What I'm Doing</a>
                     <a href="#experience" class="text-sm font-medium text-yc-dark nav-link">Experience</a>
-                    <a href="#projects" class="text-sm font-medium text-yc-dark nav-link">Projects</a>
+                    <a href="#certifications" class="text-sm font-medium text-yc-dark nav-link">Certifications</a>
                     <a href="#contact"
                         class="px-4 py-2 bg-yc-orange text-white text-sm font-medium rounded hover:bg-orange-600 transition-colors">Call
                         Me</a>
@@ -336,85 +333,82 @@
             </div>
         </section>
 
-        <!-- Projects Grid Section -->
-        <section id="projects" class="mb-24">
+        <!-- Certifications Section (replaces Projects) -->
+        <section id="certifications" class="mb-24">
 
             <!-- Divider -->
             <div class="w-full h-px bg-yc-border mb-20"></div>
 
             <div class="flex flex-col md:flex-row gap-8 md:gap-16">
                 <div class="w-full md:w-1/4">
-                    <h2 class="text-2xl font-bold text-yc-dark sticky top-24">Selected Projects</h2>
+                    <h2 class="text-2xl font-bold text-yc-dark sticky top-24">Certifications</h2>
+                    <p class="text-yc-gray text-sm mt-4">Verified credentials from Credly. Click any badge to view on Credly.</p>
                 </div>
                 <div class="w-full md:w-3/4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-                        <!-- Project 1 -->
-                        <div
-                            class="group border border-yc-border rounded-lg overflow-hidden bg-white hover:border-yc-orange transition-all duration-300">
-                            <div class="h-48 overflow-hidden bg-gray-100 relative">
-                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    src="img/project-image-1.png"
-                                    alt="minimalist dashboard interface design, orange and white color scheme, data visualization, clean typography" />
-                                <div
-                                    class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity flex items-center justify-center">
-                                    <a href="#"
-                                        class="opacity-0 group-hover:opacity-100 bg-white text-yc-dark px-4 py-2 rounded font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">View
-                                        Details</a>
-                                </div>
+                        <!-- Cert 1 -->
+                            <a href="https://www.credly.com/badges/dce248b0-1ead-4e33-9088-fc60c985be57" target="_blank" rel="noopener noreferrer" class="group border border-yc-border rounded-lg overflow-hidden bg-white p-2 badge-link hover:border-yc-orange transition-all duration-300 flex items-center gap-4">
+                            <img src="https://images.credly.com/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" alt="AWS Certified AI Practitioner badge" class="w-16 h-16 object-contain">
+                            <div>
+                                <h3 class="font-semibold">AWS Certified AI Practitioner</h3>
+                                <p class="text-xs text-yc-gray mt-1">Amazon Web Services</p>
                             </div>
-                            <div class="p-5">
-                                <div class="flex justify-between items-start mb-2">
-                                    <h3 class="font-bold text-lg">Integration with Adyen</h3>
-                                    <a href="#" class="text-yc-gray hover:text-yc-orange"><i
-                                            class="fa-solid fa-arrow-up-right-from-square text-sm"></i></a>
-                                </div>
-                                <p class="text-sm text-yc-gray mb-4 line-clamp-2">A comprehensive fleet management
-                                    system with real-time tracking, order management, and analytics.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="text-xs font-mono bg-gray-100 px-2 py-1 rounded text-yc-dark">React</span>
-                                    <span
-                                        class="text-xs font-mono bg-gray-100 px-2 py-1 rounded text-yc-dark">TypeScript</span>
-                                    <span
-                                        class="text-xs font-mono bg-gray-100 px-2 py-1 rounded text-yc-dark">Mapbox</span>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
 
-                        <!-- Project 2 -->
-                        <div
-                            class="group border border-yc-border rounded-lg overflow-hidden bg-white hover:border-yc-orange transition-all duration-300">
-                            <div class="h-48 overflow-hidden bg-gray-100 relative">
-                                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    src="img/project-image-2.png"
-                                    alt="clean minimalist job portal website interface, orange accents, list based layout, typography focused" />
-                                <div
-                                    class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity flex items-center justify-center">
-                                    <a href="#"
-                                        class="opacity-0 group-hover:opacity-100 bg-white text-yc-dark px-4 py-2 rounded font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">View
-                                        Details</a>
-                                </div>
+                        <!-- Cert 2 -->
+                            <a href="https://www.credly.com/badges/b3658050-9777-495a-8892-9a361d38a3d7" target="_blank" rel="noopener noreferrer" class="group border border-yc-border rounded-lg overflow-hidden bg-white p-2 badge-link hover:border-yc-orange transition-all duration-300 flex items-center gap-4">
+                            <img src="https://images.credly.com/images/53acdae5-d69f-4dda-b650-d02ed7a50dd7/image.png" alt="AWS Certified Security – Specialty badge" class="w-16 h-16 object-contain">
+                            <div>
+                                <h3 class="font-semibold">AWS Certified Security – Specialty</h3>
+                                <p class="text-xs text-yc-gray mt-1">Amazon Web Services</p>
                             </div>
-                            <div class="p-5">
-                                <div class="flex justify-between items-start mb-2">
-                                    <h3 class="font-bold text-lg">Marketplace for Carrefour</h3>
-                                    <a href="#" class="text-yc-gray hover:text-yc-orange"><i
-                                            class="fa-brands fa-github text-sm"></i></a>
-                                </div>
-                                <p class="text-sm text-yc-gray mb-4 line-clamp-2">A streamlined hiring platform
-                                    connecting professionals with startups. Features complex filtering and applicant
-                                    tracking.</p>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="text-xs font-mono bg-gray-100 px-2 py-1 rounded text-yc-dark">Next.js</span>
-                                    <span
-                                        class="text-xs font-mono bg-gray-100 px-2 py-1 rounded text-yc-dark">Node.js</span>
-                                    <span
-                                        class="text-xs font-mono bg-gray-100 px-2 py-1 rounded text-yc-dark">PostgreSQL</span>
-                                </div>
+                        </a>
+
+                        <!-- Cert 3 -->
+                            <a href="https://www.credly.com/badges/f1ee0608-b7ba-421e-84a8-216f750d9bff" target="_blank" rel="noopener noreferrer" class="group border border-yc-border rounded-lg overflow-hidden bg-white p-2 badge-link hover:border-yc-orange transition-all duration-300 flex items-center gap-4">
+                            <img src="https://images.credly.com/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png" alt="AWS Certified SysOps Administrator – Associate badge" class="w-16 h-16 object-contain">
+                            <div>
+                                <h3 class="font-semibold">AWS Certified SysOps Administrator – Associate</h3>
+                                <p class="text-xs text-yc-gray mt-1">Amazon Web Services</p>
                             </div>
-                        </div>
+                        </a>
+
+                        <!-- Cert 4 -->
+                            <a href="https://www.credly.com/badges/b3fc8b42-2828-495a-8641-5c5fdf2ab781" target="_blank" rel="noopener noreferrer" class="group border border-yc-border rounded-lg overflow-hidden bg-white p-2 badge-link hover:border-yc-orange transition-all duration-300 flex items-center gap-4">
+                            <img src="https://images.credly.com/images/0dc62494-dc94-469a-83af-e35309f27356/blob" alt="HashiCorp Certified: Terraform Associate (003) badge" class="w-16 h-16 object-contain">
+                            <div>
+                                <h3 class="font-semibold">HashiCorp Certified: Terraform Associate (003)</h3>
+                                <p class="text-xs text-yc-gray mt-1">HashiCorp</p>
+                            </div>
+                        </a>
+
+                        <!-- Cert 5 -->
+                            <a href="https://www.credly.com/badges/2dfc728d-d548-4974-b7de-a0256785599a" target="_blank" rel="noopener noreferrer" class="group border border-yc-border rounded-lg overflow-hidden bg-white p-2 badge-link hover:border-yc-orange transition-all duration-300 flex items-center gap-4">
+                            <img src="https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png" alt="AWS Certified Developer – Associate badge" class="w-16 h-16 object-contain">
+                            <div>
+                                <h3 class="font-semibold">AWS Certified Developer – Associate</h3>
+                                <p class="text-xs text-yc-gray mt-1">Amazon Web Services</p>
+                            </div>
+                        </a>
+
+                        <!-- Cert 6 -->
+                            <a href="https://www.credly.com/badges/2bbeed8b-e631-4490-98b8-58af4d6e7253" target="_blank" rel="noopener noreferrer" class="group border border-yc-border rounded-lg overflow-hidden bg-white p-2 badge-link hover:border-yc-orange transition-all duration-300 flex items-center gap-4">
+                            <img src="https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png" alt="AWS Certified Solutions Architect – Associate badge" class="w-16 h-16 object-contain">
+                            <div>
+                                <h3 class="font-semibold">AWS Certified Solutions Architect – Associate</h3>
+                                <p class="text-xs text-yc-gray mt-1">Amazon Web Services</p>
+                            </div>
+                        </a>
+
+                        <!-- Cert 7 -->
+                            <a href="https://www.credly.com/badges/f101d207-c664-45f5-8aea-debabe7c39b9" target="_blank" rel="noopener noreferrer" class="group border border-yc-border rounded-lg overflow-hidden bg-white p-2 badge-link hover:border-yc-orange transition-all duration-300 flex items-center gap-4">
+                            <img src="https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png" alt="AWS Certified Cloud Practitioner badge" class="w-16 h-16 object-contain">
+                            <div>
+                                <h3 class="font-semibold">AWS Certified Cloud Practitioner</h3>
+                                <p class="text-xs text-yc-gray mt-1">Amazon Web Services</p>
+                            </div>
+                        </a>
 
                     </div>
                 </div>
@@ -466,40 +460,26 @@
                     </div>
                 </div>
 
-                <div class="w-full md:w-1/2 bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm">
-                    <form id="contact-form" class="space-y-4" novalidate aria-label="Contact form"
-                        data-action="contact">
-                        <!-- Honeypot field (bots fill this) -->
-                        <input type="text" name="hp_website" id="hp_website" autocomplete="off" tabindex="-1"
-                            class="honeypot-hidden" aria-hidden="true">
-
-                        <div>
-                            <label for="name"
-                                class="block text-xs font-mono text-gray-400 mb-1 uppercase tracking-wider">Name</label>
-                            <input type="text" name="name" id="name" required
-                                class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm"
-                                placeholder="John Smith" autocomplete="name">
-                        </div>
-                        <div>
-                            <label for="email"
-                                class="block text-xs font-mono text-gray-400 mb-1 uppercase tracking-wider">Email</label>
-                            <input type="email" name="email" id="email" required
-                                class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm"
-                                placeholder="john@example.com" autocomplete="email">
-                        </div>
-                        <div>
-                            <label for="message"
-                                class="block text-xs font-mono text-gray-400 mb-1 uppercase tracking-wider">Message</label>
-                            <textarea name="message" id="message" rows="4" required
-                                class="w-full bg-white/10 border border-white/20 rounded px-4 py-2 text-white focus:outline-none focus:border-yc-orange focus:ring-1 focus:ring-yc-orange transition-colors text-sm resize-none"
-                                placeholder="How can I help you?" minlength="10" maxlength="400"></textarea>
-                        </div>
-                        <button type="submit" id="contact-submit"
-                            class="w-full bg-yc-orange text-white font-medium py-3 rounded hover:bg-orange-600 transition-colors flex justify-center items-center gap-2">
-                            Send Message <i class="fa-solid fa-paper-plane text-sm"></i>
-                        </button>
-                        <div id="contact-feedback" role="status" class="sr-only"></div>
-                    </form>
+                <div class="w-full md:w-1/2 bg-white/5 p-6 rounded-lg border border-white/10 backdrop-blur-sm flex flex-col justify-center">
+                    <p class="text-gray-200 mb-4">You can also find me on these platforms:</p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <a href="https://linkedin.com/in/nagarjun-nagesh" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 px-4 py-3 bg-yc-orange text-white rounded hover:bg-orange-600 transition-colors">
+                            <i class="fa-brands fa-linkedin text-lg"></i>
+                            <span class="font-medium">LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/NagarjunNagesh" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 px-4 py-3 bg-white/5 text-white rounded border border-white/10 hover:border-yc-orange hover:text-yc-orange transition-colors">
+                            <i class="fa-brands fa-github text-lg"></i>
+                            <span class="font-medium">GitHub</span>
+                        </a>
+                        <a href="https://medium.com/@nagarjun_nagesh" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 px-4 py-3 bg-white/5 text-white rounded border border-white/10 hover:border-yc-orange hover:text-yc-orange transition-colors">
+                            <i class="fa-brands fa-medium text-lg"></i>
+                            <span class="font-medium">Medium</span>
+                        </a>
+                        <a href="https://www.udemy.com/user/nagarjun-nagesh" target="_blank" rel="noopener noreferrer" class="w-full inline-flex items-center justify-center gap-3 px-4 py-3 bg-white/5 text-white rounded border border-white/10 hover:border-yc-orange hover:text-yc-orange transition-colors">
+                            <i class="fa-solid fa-graduation-cap text-lg"></i>
+                            <span class="font-medium">Udemy</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -524,10 +504,10 @@
                 <i class="fa-solid fa-briefcase-timeline text-xl mb-1"></i>
                 <span class="text-[10px] font-medium">Journey</span>
             </a>
-            <a href="#projects"
+            <a href="#certifications"
                 class="flex flex-col items-center justify-center w-16 h-full text-yc-gray hover:text-yc-dark transition-colors">
                 <i class="fa-solid fa-layer-group text-xl mb-1"></i>
-                <span class="text-[10px] font-medium">Work</span>
+                <span class="text-[10px] font-medium">Certifications</span>
             </a>
         </div>
     </nav>

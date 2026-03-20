@@ -62,3 +62,6 @@ h1, h2, h3, h4, h5, h6 {
 /* Utility: hide honeypot off-screen (avoid inline styles so CSP isn't violated) */
 .honeypot-hidden { position: absolute; left: -9999px; top: auto; overflow: hidden; }
 
+/* Ensure certification badge anchors have consistent padding even if Tailwind utilities are purged */
+.badge-link { padding: 0.5rem; }
+
